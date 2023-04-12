@@ -5,11 +5,87 @@ Data binding Value, Event binding,
 Ng template
 Angular service 
 -->
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- 
-Tìm hiểu cấu trúc Project
-Component, Module,
-Data binding Value, Event binding,
-Ng template
-Angular service 
--->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <section>
+        <div class="banner">
+            <div class="banner__home">
+                <div class="container">
+                    <img src="https://images.viblo.asia/full/59df84ae-2ce8-4abd-a1de-43049e765d13.png" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pb-3 pt-3">
+        <div class="container">
+            <h1> Home </h1>
+            <p-breadcrumb class="max-w-full" [home]='home'></p-breadcrumb>
+        </div>
+    </section>
+    <section class="pb-3 pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Name :</label>
+                        <input [(ngModel)]="name" type=" text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Lê Thanh A">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Age :</label>
+                        <input [(ngModel)]="age" type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Birthday :</label>
+                        <input [(ngModel)]="birthday" type="date" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    </div>     
+                    <div class="mb-3">
+                        <label for="" class="form-label">Job :</label>
+                        <input [(ngModel)]="job" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Development">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="content" *ngIf="name || age || birthday || job; then wellcom else wellcom_disaple">
+                    </div>
+                    <ng-template #wellcom>
+                        <p> Xin chào <span class="fw-bold text-capitalize"> {{name}} </span>!</p>
+                        <p *ngIf="age"> Bạn đã <span class="font-weight-bold"> {{age}} </span>tuổi rồi !</p>
+                        <p *ngIf="birthday"> Thời gian mà bạn nhìn thấy tia nắng đầu tiên là <span class="fw-bold">{{birthday}}</span></p>
+                        <p *ngIf="job"> Nghề nghiệp hiện tại của bạn là <span class="fw-bold">{{job}}</span></p>
+                    </ng-template>
+                    <ng-template #wellcom_disaple>
+                        <p>Chào mừng đến với Website</p>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-3 pb-3">
+        <div class="container">
+            <h1>Install Bootstrap 5 in Angular 13 - ItSolutionStuff.com</h1>
+            <div class="card">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="bock__clock">
+        <span>Bây giờ là: {{currentTime}}</span>
+    </div>
+</body>
+
+</html>
