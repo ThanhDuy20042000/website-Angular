@@ -16,15 +16,6 @@ Angular service
 </head>
 
 <body>
-    <section>
-        <div class="banner">
-            <div class="banner__home">
-                <div class="container">
-                    <img src="https://images.viblo.asia/full/59df84ae-2ce8-4abd-a1de-43049e765d13.png" class="img-fluid" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="pb-3 pt-3">
         <div class="container">
             <h1> Home </h1>
@@ -36,33 +27,46 @@ Angular service
             <div class="row">
                 <div class="col">
                     <div class="mb-3">
-                        <label for="" class="form-label">Name :</label>
+                        <label for="" class="form-label">Họ tên :</label>
                         <input [(ngModel)]="name" type=" text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Lê Thanh A">
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Age :</label>
+                        <label for="" class="form-label">Tuổi :</label>
                         <input [(ngModel)]="age" type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Birthday :</label>
+                        <label for="" class="form-label">Ngày sinh :</label>
                         <input [(ngModel)]="birthday" type="date" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                    </div>     
+                    </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Job :</label>
+                        <label for="" class="form-label">Nghề nghiệp :</label>
                         <input [(ngModel)]="job" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Development">
                     </div>
                 </div>
                 <div class="col">
+                    <h4>Chào mừng đến với Website</h4>
                     <div class="content" *ngIf="name || age || birthday || job; then wellcom else wellcom_disaple">
                     </div>
                     <ng-template #wellcom>
-                        <p> Xin chào <span class="fw-bold text-capitalize"> {{name}} </span>!</p>
-                        <p *ngIf="age"> Bạn đã <span class="font-weight-bold"> {{age}} </span>tuổi rồi !</p>
-                        <p *ngIf="birthday"> Thời gian mà bạn nhìn thấy tia nắng đầu tiên là <span class="fw-bold">{{birthday}}</span></p>
-                        <p *ngIf="job"> Nghề nghiệp hiện tại của bạn là <span class="fw-bold">{{job}}</span></p>
+                        <div class="block__tt">
+                            <p *ngIf="name">Quào bạn tên <span class="fw-bold text-capitalize"> {{name}} </span> ư, quả là 1 cái tên đẹp</p>
+                            <p *ngIf="age"> Bạn đã <span class="font-weight-bold"> {{age}} </span>tuổi rồi !</p>
+                            <p *ngIf="birthday"> Thời gian mà bạn nhìn thấy tia nắng đầu tiên là <span class="fw-bold">{{birthday}}</span></p>
+                            <p *ngIf="job"> Nghề nghiệp hiện tại của bạn là <span class="fw-bold text-capitalize">{{job}}.</span><br>
+                                <span *ngIf="job.toLowerCase() ==='development' || job.toLowerCase()==='it' || job.toLowerCase()==='develop' ; then textJob else textJobOff"></span>
+                                <ng-template #textJob>
+                                    Thật may mắn vì chúng ta làm chung ngành
+                                </ng-template>
+                                <ng-template #textJobOff>
+                                    Oh! <span class="fw-bold text-capitalize">{{job}}</span> cũng là một ngành nghề thú vị đó chứ.
+                                </ng-template>
+                            </p>
+                        </div>
                     </ng-template>
                     <ng-template #wellcom_disaple>
-                        <p>Chào mừng đến với Website</p>
+                        <div class="block__tt">
+                            <p>Hãy cho tôi biết nhiều hơn về bạn, để chúng ta có thể làm việc cùng nhau !</p>
+                        </div>
                     </ng-template>
                 </div>
             </div>
@@ -70,7 +74,7 @@ Angular service
     </section>
     <section class="pt-3 pb-3">
         <div class="container">
-            <h1>Install Bootstrap 5 in Angular 13 - ItSolutionStuff.com</h1>
+            <h1>Install Bootstrap 5 in Angular 15</h1>
             <div class="card">
                 <div class="card-header">
                     Featured
@@ -83,9 +87,37 @@ Angular service
             </div>
         </div>
     </section>
-    <div class="bock__clock">
-        <span>Bây giờ là: {{currentTime}}</span>
-    </div>
+    <section class="pt-3 pb-3">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-12 col-lg-12 pb-1">
+                    <h3 class="fit-content border__bottom-h3"> Angular: *ngFor</h3>
+                </div>
+                <div class="col-6">
+                    <h3>Các ngôn ngữ/lập trình framework phổ biến hiện nay:</h3>
+                    <div class="row">
+                        <div class="col-12" *ngFor="let item of arrayLanguge">
+                            <li class="text-justify">{{item.name + " " +item.content}}</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <h3 class="pb-2">Bạn muốn bổ sung thêm ngôn ngữ nào </h3>
+                        <div class="col-12 block__add-languge">
+                            <div class="mb-2">
+                                <label for="" class="form-label">Tên ngôn ngữ</label>
+                                <input [(ngModel)]="addArrayInput" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                            </div>
+                            <div class="mb-2">
+                                <label for="" class="form-label">Mô tả chi tiết ngôn ngữ</label>
+                                <textarea [(ngModel)]="addArrayInputContent" class="form-control" name="" id="" rows="2"></textarea>
+                            </div>
+                            <a (click)="addArray()" name="" id="" class="btn btn-primary d-flex justify-content-center align-items-center text-nowrap" href="#" role="button">Thêm ngôn ngữ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
-
-</html>

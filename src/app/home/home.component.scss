@@ -1,17 +1,22 @@
-.banner {
-    background: #330b74;
-}
-
 .fw-blold{
     font-weight: 700;
 }
 
-.bock__clock{
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #fff;
+.block__tt {
+    background: #f8f9fa;
     border-radius: 10px;
-    padding: 10px 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 10px;
+    display: block;
+    min-height: 84%;
+    margin-bottom: 1em;
+}
+
+.block__add-languge{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.block__add-languge > a{
+    width: fit-content;
 }
