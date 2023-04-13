@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-develop": "ng deploy --base-href=/website-Angular/ --repo=https://github.com/ThanhDuy20042000/website-Angular",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -30,7 +31,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.5",
-    "@angular/cli": "~15.2.5",
+    "@angular/cli": "^15.2.6",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
