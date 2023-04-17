@@ -106,14 +106,20 @@ Angular service
                         <h3 class="pb-2">Bạn muốn bổ sung thêm ngôn ngữ nào </h3>
                         <div class="col-12 block__add-languge">
                             <div class="mb-2">
-                                <label for="" class="form-label">Tên ngôn ngữ</label>
-                                <input [(ngModel)]="addArrayInput" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                <label for="" class="form-label">Tên ngôn ngữ (<span class="text-danger">*</span>)</label>
+                                <input [(ngModel)]="addArrayInput" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" required>
+                                <div [hidden]="!isAddArrayInputEmpty" class="alert alert-danger mt-1">
+                                    Trường này không được bỏ trống
+                                </div>
                             </div>
                             <div class="mb-2">
-                                <label for="" class="form-label">Mô tả chi tiết ngôn ngữ</label>
-                                <textarea [(ngModel)]="addArrayInputContent" class="form-control" name="" id="" rows="2"></textarea>
+                                <label for="" class="form-label"> Mô tả ngắn (<span class="text-danger">*</span>)</label>
+                                <textarea [(ngModel)]="addArrayInputContent" class="form-control" name="" id="" rows="2" required></textarea>
+                                <div [hidden]="!isAddArrayInputContent" class="alert alert-danger mt-1">
+                                    Trường này không được bỏ trống
+                                </div>
                             </div>
-                            <a (click)="addArray()" name="" id="" class="btn btn-primary d-flex justify-content-center align-items-center text-nowrap" href="#" role="button">Thêm ngôn ngữ</a>
+                            <a (click)="addArray(); checkInputValue()" name="" id="" class="btn btn-primary d-flex justify-content-center align-items-center text-nowrap" href="#" role="button">Thêm ngôn ngữ</a>
                         </div>
                     </div>
                 </div>

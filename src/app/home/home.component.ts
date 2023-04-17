@@ -20,10 +20,36 @@ export class HomeComponent {
     { name: 'React', content: 'là một framework JavaScript mã nguồn mở được phát triển bởi Facebook, được sử dụng để xây dựng các ứng dụng web động và tĩnh hiệu quả, đặc biệt phù hợp cho các dự án phức tạp và quy mô lớn.' }
   ]
 
+  isAddArrayInputEmpty = false
+  isAddArrayInputContent = false
   public addArrayInput = ''
   public addArrayInputContent = ''
+  
+  cleaArrayInput() {
+    this.addArrayInput = ''
+    this.addArrayInputContent = ''
+  }
+
   addArray() {
-    this.arrayLanguge.push({ name: this.addArrayInput, content: this.addArrayInputContent + ". #Bạn vừa thêm" })
-    alert('Đã thêm thành công !')
+    if (this.addArrayInput.length && this.addArrayInputContent.length) {
+      this.arrayLanguge.push({ name: this.addArrayInput, content: this.addArrayInputContent + ". #Bạn vừa thêm" })
+      alert('Đã thêm thành công !')
+      this.cleaArrayInput()
+    } else {
+      alert('Vui lòng nhập đủ thông tin')
+    }
+  }
+
+  checkInputValue() {
+    if (!this.addArrayInput) {
+      this.isAddArrayInputEmpty = true;
+    } else {
+      this.isAddArrayInputEmpty = false;
+    }
+    if (!this.addArrayInputContent) {
+      this.isAddArrayInputContent = true;
+    } else {
+      this.isAddArrayInputContent = false;
+    }
   }
 }
