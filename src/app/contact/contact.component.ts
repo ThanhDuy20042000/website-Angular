@@ -85,6 +85,4 @@ export class ContactComponent {
     this.districts = this.vietnamLocations.find(data => data.name === itemS)?.districts || []
     console.log(this.selectedDistricts);
   }
-  
-  
 }
