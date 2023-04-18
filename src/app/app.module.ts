@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ButtonModule } from 'primeng/button';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ButtonModule } from 'primeng/button';
     PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

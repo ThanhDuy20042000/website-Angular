@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 pb-5">
+                <h2 class="border__bottom-h3">Angular: Cascading Combobox</h2>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">Tỉnh thành</label>
+                    <select class="form-select form-select-lg" name="" id="" (change)="changeCity($event)" [(ngModel)]="selectedLocation">
+                        <option *ngFor="let itemTT of vietnamLocations" value="{{itemTT.name}}">
+                            {{itemTT.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Quận huyện</label>
+                    <select class="form-select form-select-lg" name="" id="" [(ngModel)]="selectedDistricts">
+                        <option *ngFor="let itemQh of districts" value="{{itemQh}}">
+                            {{itemQh}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-12 p-0" *ngIf="selectedDistricts && selectedLocation">
+                    Bạn đã chọn địa điểm {{ selectedLocation + " / " + selectedDistricts}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
