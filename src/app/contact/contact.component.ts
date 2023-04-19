@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { EventType } from '@angular/router';
+import { GlobalService } from '../service/global.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +9,11 @@ import { EventType } from '@angular/router';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  selectedLocation = ''
+  selectedDistricts = ''
+  districts: any = []
+  nameProduct : string = ''
+
   vietnamLocations = [
     {
       name: 'Thành phố Hà Nội',
@@ -73,16 +80,37 @@ export class ContactComponent {
     }
   ]
 
-  selectedLocation = ''
-  selectedDistricts = ''
-
-  districts: any = []
   changeCity(event: any): void {
     const itemS = event.target.value
-    if(!itemS){
-      return 
+    if (!itemS) {
+      return
     }
     this.districts = this.vietnamLocations.find(data => data.name === itemS)?.districts || []
     console.log(this.selectedDistricts);
+  }
+
+  constructor(private httpService: GlobalService) { }
+
+  public dataGet1: any
+  public ngOnInit() {
+    this.httpService.getData().subscribe((dataGet) => {
+      this.dataGet1 = dataGet
+      console.log("Data get", this.dataGet1)
+    })
+  }
+  public submitButton() {
+    console.log("Data: ", this.dataGet1)
+  }
+
+  public postData() {
+    const dateProduct = {
+      "id": Number,
+      "name": "Iphone 15",
+      "price": "27000000",
+      "quantity": "50"
+    }
+    this.httpService.postData(dateProduct).subscribe(data => {
+      console.log(data)
+    })
   }
 }

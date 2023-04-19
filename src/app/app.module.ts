@@ -12,6 +12,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ButtonModule } from 'primeng/button';
 import { ContactComponent } from './contact/contact.component';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { ContactComponent } from './contact/contact.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatSelectModule,
     AppRoutingModule,
     ButtonModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    HttpClientModule,  
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
