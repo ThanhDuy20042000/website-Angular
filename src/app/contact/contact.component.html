@@ -74,17 +74,42 @@
 
 <section>
     <div class="container pb-5">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 pb-2">
-                <h2 class="border__bottom-h3">Angular: Http POST - Observable - Json Server</h2>
-            </div>
-            <div class="col-6">
-                <div class="mb-3">
-                    <label for="" class="form-label">Tên Điện thoại</label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" [(ngModel)]="nameProduct">
+        <div class="row">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-12 pb-2">
+                        <h2 class="border__bottom-h3">Angular: Http POST - Observable - Json Server</h2>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Tên Điện thoại</label>
+                            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" [(ngModel)]="nameProduct">
+                        </div>
+                        <button type="button" class="btn btn-primary" (click)="postData(); errorNotificationPost()">Button</button>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-primary" (click)="postData();">Button</button>
+            </div>
+            <div class="col-5 box-shadow required p-4 ">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <h2 class="border__bottom-h3">Angular: QR Code</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nhập đường đẫn để tạo QR - Code</label>
+                            <input type="text" class="form-control mb-2" name="" id="" aria-describedby="helpId" placeholder="https://thanhduy20042000.github.io/website-Angular/"
+                                [(ngModel)]="qrCodeinput">
+                            <button (click)="qrCodeFunction()" type="button" class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off">Tạo ngay !</button>
+                        </div>
+                        <qr-code [value]="qrCode" size="350" errorCorrectionLevel="M" class="justify-content-center align-items-center d-flex"></qr-code>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+
     </div>
 </section>

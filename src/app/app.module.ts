@@ -15,6 +15,9 @@ import { ContactComponent } from './contact/contact.component';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { QrCodeModule } from 'ng-qrcode';
+import { GlobalService } from './service/global.service';
+
 
 @NgModule({
   declarations: [
@@ -37,8 +40,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BreadcrumbModule,
     HttpClientModule,  
     BrowserAnimationsModule,
+    QrCodeModule,
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
