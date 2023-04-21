@@ -15,14 +15,12 @@ export class GlobalService {
   public getData(): Observable<any> {
     return this.httpClient.get<any>(this.jsonUrl)
   }
-
-
+  
   public postData(postDatabase: any): Observable<any> {
     // return this.httpClient.post<any>(this.jsonUrl)
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.httpClient.post<any>(this.jsonUrl, postDatabase, { headers: headers });
   }
-
 
   public successNotification(noitifiCation: string = '') { //Success
     Swal.fire('Success', noitifiCation, 'success');

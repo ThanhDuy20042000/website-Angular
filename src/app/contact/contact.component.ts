@@ -130,8 +130,9 @@ export class ContactComponent {
       this.Date = this.noitification.errorNotification(this.noitifiCationQrError)
     }
   }
-
+  
   errorNotificationPost() {
     this.Date = this.noitification.errorNotification(this.noitifiCationQrErrorPost)
   }
+
 }
