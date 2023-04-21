@@ -12,6 +12,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ButtonModule } from 'primeng/button';
 import { ContactComponent } from './contact/contact.component';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { QrCodeModule } from 'ng-qrcode';
+import { GlobalService } from './service/global.service';
+
 
 @NgModule({
   declarations: [
@@ -28,11 +34,16 @@ import { ContactComponent } from './contact/contact.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatSelectModule,
     AppRoutingModule,
     ButtonModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    HttpClientModule,  
+    BrowserAnimationsModule,
+    QrCodeModule,
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

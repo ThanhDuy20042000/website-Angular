@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://thanhduy20042000.github.io/JS-Serve",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
